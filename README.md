@@ -5,5 +5,4 @@ A log archive tool that runs in the commandline. See README for more in-depth ex
 
 
 How to run:
-nano /usr/local/bin/log-archive.sh
 

@@ -22,22 +22,28 @@ VALUE=$1
 #input, take the first argument, path.
 
 
+
+#change the given value so that when it is includede in the title of the archive, there are no special characters; 
+#example: /home/you/Desktop/code/mythings ==> mythings (only the last folder)
+
 while true; do
     read -p "Enter a directory or file path: " VALUE
 
     if [[ -d $VALUE ]]; then
         echo "$VALUE is a directory"
 
-    
+        # save the txt file in the same directory as where the log script was executed.
         FILE_LIST="$VALUE/filelist_$TIME.txt"
         echo "File list for $VALUE on $TIME" > "$FILE_LIST"
         echo "----------------------------------" >> "$FILE_LIST"
+
+        # for writing into the file
         for file in "$VALUE"/*; do
             if [[ -e $file ]]; then  
                 echo "$(basename "$file") - $(file -b "$file")" >> "$FILE_LIST"
             fi
         done
-        FILE_NAME="logs_archive_$TIME.tar.gz"
+        FILE_NAME="archive_$VALUE_$TIME.tar.gz"
         echo "Creating archive: $FILE_NAME"
         tar cfzv "$FILE_NAME" "$VALUE"
         break  
