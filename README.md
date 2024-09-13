@@ -20,6 +20,10 @@ chmod +x log.sh
 ```bash
 ./log.sh
 ```
+## System Requirements:
+- Must run on unix-based system (like Linux mint, Debian, Ubuntu, [can be run on mac](https://stackoverflow.com/questions/733824/how-to-run-a-shell-script-on-a-unix-console-or-mac-terminal)
+
+
 
 The outputted text file containing a list of all files in the directory you provided will remain in that directory, the compressed archive will be found in the directory where you saved the script (for example, /home/yourname/Downloads).
 
